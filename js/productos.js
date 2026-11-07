@@ -80,7 +80,7 @@ window.CATEGORIAS = [
       { nombre: "Isologotipo", detalle: "Armado de 1 isologotipo para tu marca.", precio: null, tipo: "digital" },
       {
         nombre: "Kit de isologotipo",
-        detalle: "En 2 posiciones (vertical y horizontal) y 2 variantes de color. ¡Incluye un slogan de regalo!",
+        detalle: "En 2 posiciones (vertical y horizontal) y 2 variantes de color. Incluye un slogan de regalo.",
         precio: null, tipo: "digital",
       },
       {

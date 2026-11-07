@@ -1,162 +1,199 @@
 <!doctype html>
-<html lang="es-AR">
+<html lang="es-AR" data-type="product">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nombre de la marca · Materiales personalizados</title>
-  <meta name="description" content="Materiales para profes y familias: juegos en tela y acrílico, imanes, textiles, objetos personalizados, diseño gráfico, recursos para dislexia, guías para docentes y kits Mini Diseñadoras.">
-  <meta name="theme-color" content="#f8dcc7">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nombre de la marca · Materiales didácticos y personalizados</title>
+  <meta name="description" content="Materiales didácticos y personalizados para profes y familias: juegos en tela y acrílico, imanes, textiles, cuadernillos para dislexia, guías docentes y kits Mini Diseñadoras.">
+  <meta name="page-type" content="product">
+  <meta name="site-kind" content="other">
+  <meta name="theme-color" content="#f8e1cf">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600;800&family=Nunito:wght@400;700&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600;800&family=Nunito:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css?v=10">
 </head>
 <body>
-  <a class="saltar" href="#contenido">Saltar al contenido</a>
-
-  <header class="barra">
-    <a class="marca" href="#inicio">
-      <img src="img/logo.svg" alt="" width="36" height="36">
-      <span>Nombre de la marca</span>
-    </a>
-    <nav aria-label="Secciones">
-      <ul>
-        <li><a href="#yo-soy">Yo soy</a></li>
-        <li><a href="#trayectoria">Trayectoria</a></li>
+  <header class="nav">
+    <div class="wrap nav__fila">
+      <a class="saltar" href="#contenido">Saltar al contenido</a>
+      <a class="marca" href="#inicio" aria-label="Nombre de la marca, inicio">
+        <img src="img/logo.svg" alt="" width="40" height="40">
+        <span>Nombre de la marca</span>
+      </a>
+      <nav aria-label="Secciones">
+        <ul class="nav__links">
+          <li><a href="#tienda">Tienda</a></li>
+          <li><a href="#yo-soy">Sobre mí</a></li>
+          <li><a href="#trayectoria">Trayectoria</a></li>
+          <li><a href="#gratis">Gratis</a></li>
+        </ul>
+      </nav>
+      <a class="boton nav__btn" href="#contacto">Hacer un pedido</a>
+      <button class="nav__menu" type="button" aria-expanded="false" aria-controls="menu-movil">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <span>Menú</span>
+      </button>
+    </div>
+    <nav id="menu-movil" class="menu-movil" aria-label="Secciones" hidden>
+      <ul class="wrap">
         <li><a href="#tienda">Tienda</a></li>
-        <li><a href="#gratis">Gratis</a></li>
+        <li><a href="#yo-soy">Sobre mí</a></li>
+        <li><a href="#trayectoria">Trayectoria</a></li>
+        <li><a href="#gratis">Recursos gratuitos</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="contenido">
-    <!-- INICIO: logo + barras (estilo link de Instagram) -->
-    <section id="inicio" class="inicio">
-      <div class="inicio-marca">
-        <img class="logo" src="img/logo.svg" alt="Logo de la marca" width="150" height="150" fetchpriority="high">
-        <h1>Nombre de la marca</h1>
-        <p class="lema">Materiales hechos con amor, por profes para profes.</p>
-      </div>
+    <!-- INICIO: lo que se vende + las barras de acceso -->
+    <section id="inicio" class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__texto">
+          <h1>Materiales didácticos y personalizados para profes y familias</h1>
+          <p class="hero__lead">Juegos en tela y acrílico, imanes, cuadernillos para dislexia y guías para docentes, hechos a pedido. Los PDF los imprimís o los usás desde la compu o el celu.</p>
+          <p class="hero__dato">36 materiales en 9 categorías</p>
+        </div>
 
-      <ul class="barras">
-        <li><a href="#tienda">
-          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Zm4 0V7a3 3 0 0 1 6 0v1"/></svg></span>
-          Tienda personalizada</a></li>
-        <li><a href="#yo-soy">
-          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.3-7 8-7s7 2.5 8 7"/></svg></span>
-          Yo soy</a></li>
-        <li><a href="#trayectoria">
-          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 21V4m0 1h11l-2 4 2 4H6"/></svg></span>
-          Mi trayectoria</a></li>
-        <li><a href="#tienda" data-abrir="profes">
-          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 10h7M8.5 14h7M8.5 18h4"/></svg></span>
-          De profes para profes</a></li>
-        <li><a href="#tienda" data-abrir="dislexia">
-          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4V5Zm16 0h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6V5Z"/></svg></span>
-          Todo para dislexia</a></li>
-        <li><a href="#tienda" data-abrir="disenadoras">
-          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v3m-3 0h6l3 10H6l3-10Z"/></svg></span>
-          Mini Diseñadoras</a></li>
-        <li><a href="#gratis">
-          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M3 9h18M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9Zm0 0c2-4 6-4 6-1.5S14 9 12 9Z"/></svg></span>
-          Recursos gratuitos</a></li>
-      </ul>
+        <ul class="barras" aria-label="Accesos">
+          <li><a href="#tienda">
+            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Zm4 0V7a3 3 0 0 1 6 0v1"/></svg></span>
+            Tienda personalizada</a></li>
+          <li><a href="#yo-soy">
+            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.3-7 8-7s7 2.5 8 7"/></svg></span>
+            Yo soy</a></li>
+          <li><a href="#trayectoria">
+            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 21V4m0 1h11l-2 4 2 4H6"/></svg></span>
+            Mi trayectoria</a></li>
+          <li><a href="#tienda" data-abrir="profes">
+            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 10h7M8.5 14h7M8.5 18h4"/></svg></span>
+            De profes para profes</a></li>
+          <li><a href="#tienda" data-abrir="dislexia">
+            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4V5Zm16 0h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6V5Z"/></svg></span>
+            Todo para dislexia</a></li>
+          <li><a href="#tienda" data-abrir="disenadoras">
+            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v3m-3 0h6l3 10H6l3-10Z"/></svg></span>
+            Mini Diseñadoras</a></li>
+          <li><a href="#gratis">
+            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M3 9h18M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9Zm0 0c2-4 6-4 6-1.5S14 9 12 9Z"/></svg></span>
+            Recursos gratuitos</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TIENDA -->
+    <section id="tienda" class="seccion seccion--alt">
+      <div class="wrap">
+        <header class="cabeza">
+          <h2>Tienda personalizada</h2>
+          <p>Todo se hace a pedido. Los materiales en PDF los podés imprimir o trabajar desde la compu o el celu.</p>
+        </header>
+
+        <div class="tienda">
+          <nav class="indice" aria-label="Categorías de la tienda">
+            <div id="filtros" class="filtros" role="group" aria-label="Filtrar por categoría"></div>
+          </nav>
+          <div class="tienda__lista">
+            <div id="catalogo" aria-live="polite"></div>
+
+            <aside class="a-medida">
+              <span class="cinta" aria-hidden="true"></span>
+              <span class="a-medida__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m15 4 5 5-10 10H5v-5L15 4Zm-3 3 5 5"/></svg></span>
+              <div class="a-medida__texto">
+                <h3>¿Necesitás algo a medida?</h3>
+                <p>Contame qué diseño o actividad necesitás y te lo preparo a medida.</p>
+              </div>
+              <a class="boton" href="#contacto">Consultar</a>
+            </aside>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- YO SOY -->
-    <section id="yo-soy" class="seccion yo-soy">
-      <figure class="polaroid">
-        <span class="cinta" aria-hidden="true"></span>
-        <!-- REEMPLAZAR: foto de tu mamá en img/yo.webp y cambiar este div por <img src="img/yo.webp" alt="..."> -->
-        <div class="polaroid-foto" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="9" r="4"/><path d="M4 21c1-4.5 4.3-7 8-7s7 2.5 8 7"/></svg>
+    <section id="yo-soy" class="seccion">
+      <div class="wrap yo-soy">
+        <figure class="polaroid">
+          <span class="cinta" aria-hidden="true"></span>
+          <!-- REEMPLAZAR: foto de tu mamá en img/yo.webp y cambiar este div por <img src="img/yo.webp" alt="..." width="600" height="750"> -->
+          <div class="polaroid__foto" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M4 21c1-4.5 4.3-7 8-7s7 2.5 8 7"/></svg>
+          </div>
+          <figcaption>Tu foto acá</figcaption>
+        </figure>
+        <div class="yo-soy__texto">
+          <h2>Yo soy</h2>
+          <!-- REEMPLAZAR: texto storytelling de tu mamá -->
+          <p>Acá va la historia: quién es, cómo empezó, por qué hace estos materiales y qué la mueve. Un texto cercano, en primera persona, como si le hablara a otra profe o a una familia.</p>
+          <p>Un segundo párrafo puede contar qué la diferencia: el cuidado en cada detalle, que todo está pensado desde el aula y probado con chicos de verdad.</p>
         </div>
-        <figcaption>Tu foto acá</figcaption>
-      </figure>
-      <div class="yo-texto">
-        <h2>Yo soy</h2>
-        <!-- REEMPLAZAR: texto storytelling de tu mamá -->
-        <p>Acá va la historia: quién es, cómo empezó, por qué hace estos materiales y qué la mueve. Un texto cercano, en primera persona, como si le hablara a otra profe o a una familia.</p>
-        <p>Un segundo párrafo puede contar qué la diferencia: el cuidado en cada detalle, que todo está pensado desde el aula y probado con chicos de verdad.</p>
       </div>
     </section>
 
     <!-- TRAYECTORIA -->
-    <section id="trayectoria" class="seccion trayectoria">
-      <h2>Mi trayectoria</h2>
-      <!-- REEMPLAZAR: hitos reales (año + qué) -->
-      <ol class="linea">
-        <li><span class="anio">Año</span><h3>Título o formación</h3><p>Dónde estudió y qué.</p></li>
-        <li><span class="anio">Año</span><h3>Experiencia</h3><p>Instituciones, cargos, años de trabajo.</p></li>
-        <li><span class="anio">Año</span><h3>Especialización</h3><p>Cursos, posgrados, capacitaciones.</p></li>
-        <li><span class="anio">Hoy</span><h3>Este proyecto</h3><p>Cómo nació la tienda y qué ofrece.</p></li>
-      </ol>
-    </section>
-
-    <!-- TIENDA -->
-    <section id="tienda" class="seccion tienda">
-      <header class="tienda-cab">
-        <h2>Tienda personalizada</h2>
-        <p>Todo se hace a pedido. Los materiales en PDF los podés imprimir o trabajar desde la compu o el celu.</p>
-      </header>
-
-      <div class="tienda-cuerpo">
-        <nav class="filtros-caja" aria-label="Categorías de la tienda">
-          <div id="filtros" class="filtros" role="group" aria-label="Filtrar por categoría"></div>
-        </nav>
-        <div class="tienda-lista">
-          <div id="catalogo"></div>
-
-          <aside class="a-medida">
-            <span class="cinta" aria-hidden="true"></span>
-            <h3>¿Necesitás algo a medida?</h3>
-            <p>Consultanos por el diseño o la actividad personalizada que necesites.</p>
-            <a class="boton" href="#contacto">Consultar</a>
-          </aside>
-        </div>
+    <section id="trayectoria" class="seccion seccion--alt">
+      <div class="wrap">
+        <header class="cabeza">
+          <h2>Mi trayectoria</h2>
+        </header>
+        <!-- REEMPLAZAR: hitos reales (año + qué) -->
+        <ol class="linea">
+          <li><span class="anio">Año</span><h3>Título o formación</h3><p>Dónde estudió y qué.</p></li>
+          <li><span class="anio">Año</span><h3>Experiencia</h3><p>Instituciones, cargos, años de trabajo.</p></li>
+          <li><span class="anio">Año</span><h3>Especialización</h3><p>Cursos, posgrados, capacitaciones.</p></li>
+          <li><span class="anio">Hoy</span><h3>Este proyecto</h3><p>Cómo nació la tienda y qué ofrece.</p></li>
+        </ol>
       </div>
     </section>
 
     <!-- RECURSOS GRATUITOS -->
-    <section id="gratis" class="seccion gratis">
-      <h2>Recursos gratuitos</h2>
-      <p class="bajada">Material para descargar sin costo. ¡Compartilo con quien le sirva!</p>
-      <!-- REEMPLAZAR: cada recurso con su PDF en la carpeta descargas/ -->
-      <ul class="recursos">
-        <li>
-          <h3>Recurso de ejemplo 1</h3>
-          <p>Breve descripción del material.</p>
-          <span class="pronto">Próximamente</span>
-        </li>
-        <li>
-          <h3>Recurso de ejemplo 2</h3>
-          <p>Breve descripción del material.</p>
-          <span class="pronto">Próximamente</span>
-        </li>
-      </ul>
+    <section id="gratis" class="seccion">
+      <div class="wrap">
+        <header class="cabeza">
+          <h2>Recursos gratuitos</h2>
+          <p>Material para descargar sin costo. ¡Compartilo con quien le sirva!</p>
+        </header>
+        <!-- REEMPLAZAR: cada recurso con su PDF en la carpeta descargas/ -->
+        <ul class="carpetas">
+          <li>
+            <h3>Recurso de ejemplo 1</h3>
+            <p>Breve descripción del material.</p>
+            <span class="pronto">Próximamente</span>
+          </li>
+          <li>
+            <h3>Recurso de ejemplo 2</h3>
+            <p>Breve descripción del material.</p>
+            <span class="pronto">Próximamente</span>
+          </li>
+        </ul>
+      </div>
     </section>
   </main>
 
-  <footer id="contacto" class="pie">
-    <div class="pie-interior">
-      <div>
-        <h2>Hablemos</h2>
-        <p>Escribime para pedir un material, consultar un precio o encargar algo a medida.</p>
+  <footer id="contacto" class="cierre">
+    <div class="wrap">
+      <div class="cierre__fila">
+        <div>
+          <h2>Pedidos y consultas</h2>
+          <p>Escribime para pedir un material, consultar un precio o encargar algo a medida.</p>
+        </div>
+        <!-- REEMPLAZAR: número de WhatsApp, mail e Instagram reales -->
+        <div class="cierre__botones">
+          <a class="boton boton--claro" href="https://wa.me/5491100000000" rel="noopener">Hacer un pedido</a>
+          <a class="boton boton--borde" href="mailto:hola@marca.example">Escribir un mail</a>
+        </div>
       </div>
-      <!-- REEMPLAZAR: datos reales -->
-      <ul class="contacto">
-        <li><a href="https://wa.me/5491100000000" rel="noopener">WhatsApp</a></li>
-        <li><a href="https://instagram.com/" rel="noopener">Instagram</a></li>
-        <li><a href="mailto:mail@ejemplo.com">mail@ejemplo.com</a></li>
-      </ul>
+      <div class="cierre__legal">
+        <span>© <span id="anio"></span> Nombre de la marca</span>
+        <a class="link-pie" href="https://instagram.com/" rel="noopener">Instagram</a>
+      </div>
     </div>
-    <p class="legal">© <span id="anio"></span> Nombre de la marca</p>
   </footer>
 
-  <script src="js/productos.js?v=5" defer></script>
-  <script src="js/catalogo.js?v=5" defer></script>
+  <script src="js/productos.js?v=10" defer></script>
+  <script src="js/catalogo.js?v=10" defer></script>
 </body>
 </html>
