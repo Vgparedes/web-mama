@@ -5,49 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nombre de la marca · Materiales personalizados</title>
   <meta name="description" content="Materiales para profes y familias: juegos en tela y acrílico, imanes, textiles, objetos personalizados, diseño gráfico, recursos para dislexia, guías para docentes y kits Mini Diseñadoras.">
-  <meta name="theme-color" content="#fde6d5">
+  <meta name="theme-color" content="#f8dcc7">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Nunito:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600;800&family=Nunito:wght@400;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
 
-  <nav class="barra" aria-label="Secciones">
-    <a class="barra-marca" href="#inicio">Nombre de la marca</a>
-    <ul>
-      <li><a href="#yo-soy">Yo soy</a></li>
-      <li><a href="#trayectoria">Trayectoria</a></li>
-      <li><a href="#tienda">Tienda</a></li>
-      <li><a href="#gratis">Gratis</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
+  <header class="barra">
+    <a class="marca" href="#inicio">
+      <img src="img/logo.svg" alt="" width="36" height="36">
+      <span>Nombre de la marca</span>
+    </a>
+    <nav aria-label="Secciones">
+      <ul>
+        <li><a href="#yo-soy">Yo soy</a></li>
+        <li><a href="#trayectoria">Trayectoria</a></li>
+        <li><a href="#tienda">Tienda</a></li>
+        <li><a href="#gratis">Gratis</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main id="contenido">
-    <!-- INICIO: logo + botonera -->
+    <!-- INICIO: hoja de cuaderno + stickers de categorías -->
     <section id="inicio" class="inicio">
-      <img class="logo" src="img/logo.svg" alt="Logo de la marca" width="200" height="200" fetchpriority="high">
-      <h1>Nombre de la marca</h1>
-      <p class="lema">Materiales hechos con amor, por profes para profes.</p>
+      <div class="hoja">
+        <span class="cinta" aria-hidden="true"></span>
+        <h1>Nombre de la marca</h1>
+        <p class="lema">Materiales hechos con amor, por profes para profes. Juegos, cuadernillos y objetos personalizados para el aula y la casa.</p>
+        <div class="acciones">
+          <a class="boton" href="#tienda">Ver la tienda</a>
+          <a class="boton boton-claro" href="#gratis">Recursos gratis</a>
+        </div>
+      </div>
 
-      <ul class="botonera">
-        <li><a class="boton" href="#tienda">Tienda personalizada</a></li>
-        <li><a class="boton" href="#yo-soy">Yo soy</a></li>
-        <li><a class="boton" href="#trayectoria">Mi trayectoria</a></li>
-        <li><a class="boton" href="#tienda" data-abrir="profes">De profes para profes</a></li>
-        <li><a class="boton" href="#tienda" data-abrir="dislexia">Todo para dislexia</a></li>
-        <li><a class="boton" href="#tienda" data-abrir="disenadoras">Mini Diseñadoras</a></li>
-        <li><a class="boton" href="#gratis">Recursos gratuitos</a></li>
-      </ul>
+      <div class="atajos-caja">
+        <h2 class="atajos-titulo">¿Qué estás buscando?</h2>
+        <ul id="atajos" class="atajos"></ul>
+      </div>
     </section>
 
     <!-- YO SOY -->
-    <section id="yo-soy" class="seccion">
-      <div class="caja texto">
+    <section id="yo-soy" class="seccion yo-soy">
+      <figure class="polaroid">
+        <span class="cinta" aria-hidden="true"></span>
+        <!-- REEMPLAZAR: foto de tu mamá en img/yo.webp y cambiar este div por <img src="img/yo.webp" alt="..."> -->
+        <div class="polaroid-foto" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="9" r="4"/><path d="M4 21c1-4.5 4.3-7 8-7s7 2.5 8 7"/></svg>
+        </div>
+        <figcaption>Tu foto acá</figcaption>
+      </figure>
+      <div class="yo-texto">
         <h2>Yo soy</h2>
         <!-- REEMPLAZAR: texto storytelling de tu mamá -->
         <p>Acá va la historia: quién es, cómo empezó, por qué hace estos materiales y qué la mueve. Un texto cercano, en primera persona, como si le hablara a otra profe o a una familia.</p>
@@ -56,57 +70,74 @@
     </section>
 
     <!-- TRAYECTORIA -->
-    <section id="trayectoria" class="seccion">
-      <div class="caja">
-        <h2>Mi trayectoria</h2>
-        <!-- REEMPLAZAR: hitos reales (año + qué) -->
-        <ol class="linea">
-          <li><span class="anio">Año</span><div><h3>Título o formación</h3><p>Dónde estudió y qué.</p></div></li>
-          <li><span class="anio">Año</span><div><h3>Experiencia</h3><p>Instituciones, cargos, años de trabajo.</p></div></li>
-          <li><span class="anio">Año</span><div><h3>Especialización</h3><p>Cursos, posgrados, capacitaciones.</p></div></li>
-          <li><span class="anio">Hoy</span><div><h3>Este proyecto</h3><p>Cómo nació la tienda y qué ofrece.</p></div></li>
-        </ol>
-      </div>
+    <section id="trayectoria" class="seccion trayectoria">
+      <h2>Mi trayectoria</h2>
+      <!-- REEMPLAZAR: hitos reales (año + qué) -->
+      <ol class="linea">
+        <li><span class="anio">Año</span><h3>Título o formación</h3><p>Dónde estudió y qué.</p></li>
+        <li><span class="anio">Año</span><h3>Experiencia</h3><p>Instituciones, cargos, años de trabajo.</p></li>
+        <li><span class="anio">Año</span><h3>Especialización</h3><p>Cursos, posgrados, capacitaciones.</p></li>
+        <li><span class="anio">Hoy</span><h3>Este proyecto</h3><p>Cómo nació la tienda y qué ofrece.</p></li>
+      </ol>
     </section>
 
     <!-- TIENDA -->
-    <section id="tienda" class="seccion">
-      <div class="caja ancha">
+    <section id="tienda" class="seccion tienda">
+      <header class="tienda-cab">
         <h2>Tienda personalizada</h2>
-        <p class="intro">Todo se hace a pedido. Los materiales en PDF los podés imprimir o trabajar desde la compu o el celu.</p>
-        <div id="filtros" class="filtros" role="group" aria-label="Filtrar por categoría"></div>
-        <div id="catalogo"></div>
+        <p>Todo se hace a pedido. Los materiales en PDF los podés imprimir o trabajar desde la compu o el celu.</p>
+      </header>
 
-        <aside class="a-medida">
-          <h3>¿Necesitás algo a medida?</h3>
-          <p>Consultanos por el diseño o la actividad personalizada que necesites.</p>
-          <a class="boton" href="#contacto">Consultar</a>
-        </aside>
+      <div class="tienda-cuerpo">
+        <nav class="filtros-caja" aria-label="Categorías de la tienda">
+          <div id="filtros" class="filtros" role="group" aria-label="Filtrar por categoría"></div>
+        </nav>
+        <div class="tienda-lista">
+          <div id="catalogo"></div>
+
+          <aside class="a-medida">
+            <span class="cinta" aria-hidden="true"></span>
+            <h3>¿Necesitás algo a medida?</h3>
+            <p>Consultanos por el diseño o la actividad personalizada que necesites.</p>
+            <a class="boton" href="#contacto">Consultar</a>
+          </aside>
+        </div>
       </div>
     </section>
 
     <!-- RECURSOS GRATUITOS -->
-    <section id="gratis" class="seccion">
-      <div class="caja">
-        <h2>Recursos gratuitos</h2>
-        <p class="intro">Material para descargar sin costo. ¡Compartilo con quien le sirva!</p>
-        <!-- REEMPLAZAR: cada recurso con su PDF en la carpeta descargas/ -->
-        <ul class="recursos">
-          <li><div><h3>Recurso de ejemplo 1</h3><p>Breve descripción del material.</p></div><span class="pronto">Próximamente</span></li>
-          <li><div><h3>Recurso de ejemplo 2</h3><p>Breve descripción del material.</p></div><span class="pronto">Próximamente</span></li>
-        </ul>
-      </div>
+    <section id="gratis" class="seccion gratis">
+      <h2>Recursos gratuitos</h2>
+      <p class="bajada">Material para descargar sin costo. ¡Compartilo con quien le sirva!</p>
+      <!-- REEMPLAZAR: cada recurso con su PDF en la carpeta descargas/ -->
+      <ul class="recursos">
+        <li>
+          <h3>Recurso de ejemplo 1</h3>
+          <p>Breve descripción del material.</p>
+          <span class="pronto">Próximamente</span>
+        </li>
+        <li>
+          <h3>Recurso de ejemplo 2</h3>
+          <p>Breve descripción del material.</p>
+          <span class="pronto">Próximamente</span>
+        </li>
+      </ul>
     </section>
   </main>
 
   <footer id="contacto" class="pie">
-    <h2>Contacto</h2>
-    <!-- REEMPLAZAR: datos reales -->
-    <ul class="contacto">
-      <li><a href="mailto:mail@ejemplo.com">mail@ejemplo.com</a></li>
-      <li><a href="https://instagram.com/" rel="noopener">Instagram</a></li>
-      <li><a href="https://wa.me/5491100000000" rel="noopener">WhatsApp</a></li>
-    </ul>
+    <div class="pie-interior">
+      <div>
+        <h2>Hablemos</h2>
+        <p>Escribime para pedir un material, consultar un precio o encargar algo a medida.</p>
+      </div>
+      <!-- REEMPLAZAR: datos reales -->
+      <ul class="contacto">
+        <li><a href="https://wa.me/5491100000000" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://instagram.com/" rel="noopener">Instagram</a></li>
+        <li><a href="mailto:mail@ejemplo.com">mail@ejemplo.com</a></li>
+      </ul>
+    </div>
     <p class="legal">© <span id="anio"></span> Nombre de la marca</p>
   </footer>
 
