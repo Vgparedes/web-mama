@@ -1,3 +1,6 @@
+// Página de KRSp (los que hicimos la web). Mientras esté vacío, el logo del pie no lleva a ningún lado.
+const SITIO_KRSP = ""; // ej. "https://krsp.com.ar"
+
 // Dibuja la tienda a partir de js/productos.js: una fila de categorías y las tarjetas de la elegida.
 // No hay carrito todavía: cada tarjeta muestra precio o "Consultar".
 (function () {
@@ -137,6 +140,9 @@
     menu.addEventListener("click", (e) => { if (e.target.closest("a")) cerrar(); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) { cerrar(); botonMenu.focus(); } });
   }
+
+  // Link del logo de KRSp en el pie
+  document.querySelectorAll('[data-link="krsp"]').forEach((a) => { if (SITIO_KRSP) a.href = SITIO_KRSP; });
 
   const anio = document.getElementById("anio");
   if (anio) anio.textContent = new Date().getFullYear();

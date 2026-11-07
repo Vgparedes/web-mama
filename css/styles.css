@@ -50,6 +50,10 @@ img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 p { margin: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
+/* Lectura amigable con la dislexia: un poco más de aire entre letras y entre palabras en el texto */
+body { letter-spacing: .03em; word-spacing: .1em; }
+/* Grandstander solo va en textos cortos y grandes (títulos, botones, barras), con su espaciado normal */
+h1, h2, h3, h4, .boton, .barras a, .precio, .anio, .marca, .menu-movil a { letter-spacing: .01em; word-spacing: normal; }
 h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1; margin: 0; }
 :focus-visible { outline: 3px solid var(--cacao); outline-offset: 3px; border-radius: 6px; }
 
@@ -216,7 +220,7 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
 .categoria__cab { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
 .categoria__cab .icono-cat { width: 52px; height: 52px; }
 .categoria__cab h3 { font-size: 1.8rem; }
-.categoria__cab p { color: var(--cacao-suave); font-size: .98rem; }
+.categoria__cab p { color: var(--cacao-suave); font-size: 1rem; }
 
 .grilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
 .tarjeta {
@@ -229,12 +233,12 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
 .tarjeta__arriba { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
 .tarjeta__arriba .icono-cat { width: 46px; height: 46px; }
 .tarjeta h4 { font-size: 1.3rem; font-weight: 600; margin-bottom: 6px; }
-.tarjeta__texto { font-size: .95rem; color: var(--cacao-suave); margin-bottom: 12px; }
-.etiqueta { font-size: .78rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--fondo); border: 1.5px solid var(--cacao-suave); white-space: nowrap; }
+.tarjeta__texto { font-size: 1rem; color: var(--cacao-suave); margin-bottom: 12px; }
+.etiqueta { font-size: .875rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--fondo); border: 1.5px solid var(--cacao-suave); white-space: nowrap; }
 .etiqueta--digital { background: #d6e2cc; border-style: dashed; }
 .etiqueta--pronto { background: transparent; border: 2px dashed var(--cacao-suave); }
 .opciones { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; }
-.opciones li { font-size: .82rem; padding: 2px 9px; border-radius: 999px; background: var(--papel); border: 1px solid var(--renglon); }
+.opciones li { font-size: .875rem; padding: 2px 9px; border-radius: 999px; background: var(--papel); border: 1px solid var(--renglon); }
 .precio { margin-top: auto; padding-top: 10px; border-top: 2px dashed var(--renglon); font: 800 1.1rem/1.2 var(--titulos); }
 .tarjeta--pronto { border-style: dashed; background: rgb(255 255 255 / .5); }
 .tarjeta--pronto .icono-cat { opacity: .55; }
@@ -305,12 +309,12 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
   background: var(--papel); border: 3px solid var(--cacao); border-radius: 999px;
 }
 .linea h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 4px; }
-.linea p { color: var(--cacao-suave); font-size: .95rem; }
+.linea p { color: var(--cacao-suave); font-size: 1rem; }
 @media (max-width: 760px) {
   .linea { grid-template-columns: 1fr; gap: 20px; }
   .linea::before { left: 27px; right: auto; top: 10px; bottom: 10px; border-top: 0; border-left: 3px dashed var(--cacao-suave); }
   .linea li { text-align: left; display: grid; grid-template-columns: 56px 1fr; column-gap: 16px; }
-  .anio { grid-row: span 2; margin: 0; font-size: .9rem; }
+  .anio { grid-row: span 2; margin: 0; font-size: .95rem; }
 }
 
 /* ---------- Recursos gratuitos (carpetas) ---------- */
@@ -324,8 +328,8 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
   background: var(--papel); border: 2px solid var(--cacao); border-bottom: 0; border-radius: 10px 10px 0 0;
 }
 .carpetas h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 4px; }
-.carpetas p { color: var(--cacao-suave); font-size: .95rem; margin-bottom: 12px; }
-.pronto { display: inline-block; font-weight: 700; font-size: .85rem; padding: 4px 12px; border-radius: 999px; border: 2px dashed var(--cacao-suave); }
+.carpetas p { color: var(--cacao-suave); font-size: 1rem; margin-bottom: 12px; }
+.pronto { display: inline-block; font-weight: 700; font-size: .875rem; padding: 4px 12px; border-radius: 999px; border: 2px dashed var(--cacao-suave); }
 
 /* ---------- Pie / contacto ---------- */
 .cierre { background: var(--cacao); color: var(--papel); padding: 64px 0 28px; margin-top: 24px; }
@@ -335,6 +339,12 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
 .cierre__botones { display: flex; flex-wrap: wrap; gap: 12px; }
 .cierre :focus-visible { outline-color: var(--papel); }
 .cierre__legal { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid rgb(255 250 244 / .2); font-size: .9rem; opacity: .9; }
+/* "Página creada por" + logo de KRSp (igual que en Cremita) */
+/* el texto arriba y el logo centrado debajo */
+.creado-por { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; font-size: .9rem; line-height: 1.2; }
+.creado-por a { display: inline-flex; align-items: center; justify-content: center; min-height: 32px; min-width: 44px; }
+.creado-por img { display: block; height: 20px; width: auto; }
+.creado-por a[href]:hover img { opacity: .8; } /* solo si ya tiene link */
 .link-pie { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; }
 @media (max-width: 639px) { .cierre__botones, .cierre__botones .boton { width: 100%; } }
 
@@ -342,3 +352,4 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
 
 #catalogo { scroll-margin-top: 12px; }
 @media (max-width: 899px) { #catalogo { scroll-margin-top: 84px; } }
+@media (max-width: 639px) { .creado-por { width: 100%; margin-top: 8px; } }
