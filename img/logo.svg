@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Logo provisorio: reemplazar por el definitivo (mismo nombre o cambiar la ruta en index.html) -->
+  <circle cx="100" cy="100" r="96" fill="#fff"/>
+  <path d="M42 98c-2-30 22-52 56-54 36-2 62 18 61 50-1 34-28 56-60 55-33-1-55-22-57-51Z" fill="#fbe1cf" stroke="#4a3426" stroke-width="2.2"/>
+  <path d="M100 128c-18-12-30-22-30-36 0-10 7-17 16-17 6 0 11 3 14 9 3-6 8-9 14-9 9 0 16 7 16 17 0 14-12 24-30 36Z" fill="#c9a084"/>
+</svg>

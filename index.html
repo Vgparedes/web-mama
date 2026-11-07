@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nombre de la marca · Materiales personalizados</title>
+  <meta name="description" content="Materiales para profes y familias: juegos en tela y acrílico, imanes, textiles, objetos personalizados, diseño gráfico y recursos para dislexia.">
+  <meta name="theme-color" content="#fde6d5">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Nunito:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <nav class="barra" aria-label="Secciones">
+    <a class="barra-marca" href="#inicio">Nombre de la marca</a>
+    <ul>
+      <li><a href="#yo-soy">Yo soy</a></li>
+      <li><a href="#trayectoria">Trayectoria</a></li>
+      <li><a href="#tienda">Tienda</a></li>
+      <li><a href="#gratis">Gratis</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenido">
+    <!-- INICIO: logo + botonera -->
+    <section id="inicio" class="inicio">
+      <img class="logo" src="img/logo.svg" alt="Logo de la marca" width="200" height="200" fetchpriority="high">
+      <h1>Nombre de la marca</h1>
+      <p class="lema">Materiales hechos con amor, por profes para profes.</p>
+
+      <ul class="botonera">
+        <li><a class="boton" href="#tienda">Tienda personalizada</a></li>
+        <li><a class="boton" href="#yo-soy">Yo soy</a></li>
+        <li><a class="boton" href="#trayectoria">Mi trayectoria</a></li>
+        <li><a class="boton" href="#tienda" data-abrir="dislexia">Todo para dislexia</a></li>
+        <li><a class="boton" href="#gratis">Recursos gratuitos</a></li>
+      </ul>
+    </section>
+
+    <!-- YO SOY -->
+    <section id="yo-soy" class="seccion">
+      <div class="caja texto">
+        <h2>Yo soy</h2>
+        <!-- REEMPLAZAR: texto storytelling de tu mamá -->
+        <p>Acá va la historia: quién es, cómo empezó, por qué hace estos materiales y qué la mueve. Un texto cercano, en primera persona, como si le hablara a otra profe o a una familia.</p>
+        <p>Un segundo párrafo puede contar qué la diferencia: el cuidado en cada detalle, que todo está pensado desde el aula y probado con chicos de verdad.</p>
+      </div>
+    </section>
+
+    <!-- TRAYECTORIA -->
+    <section id="trayectoria" class="seccion">
+      <div class="caja">
+        <h2>Mi trayectoria</h2>
+        <!-- REEMPLAZAR: hitos reales (año + qué) -->
+        <ol class="linea">
+          <li><span class="anio">Año</span><div><h3>Título o formación</h3><p>Dónde estudió y qué.</p></div></li>
+          <li><span class="anio">Año</span><div><h3>Experiencia</h3><p>Instituciones, cargos, años de trabajo.</p></div></li>
+          <li><span class="anio">Año</span><div><h3>Especialización</h3><p>Cursos, posgrados, capacitaciones.</p></div></li>
+          <li><span class="anio">Hoy</span><div><h3>Este proyecto</h3><p>Cómo nació la tienda y qué ofrece.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TIENDA -->
+    <section id="tienda" class="seccion">
+      <div class="caja ancha">
+        <h2>Tienda personalizada</h2>
+        <p class="intro">Todo se hace a pedido. Los materiales en PDF los podés imprimir o trabajar desde la compu o el celu.</p>
+        <div id="filtros" class="filtros" role="group" aria-label="Filtrar por categoría"></div>
+        <div id="catalogo"></div>
+      </div>
+    </section>
+
+    <!-- RECURSOS GRATUITOS -->
+    <section id="gratis" class="seccion">
+      <div class="caja">
+        <h2>Recursos gratuitos</h2>
+        <p class="intro">Material para descargar sin costo. ¡Compartilo con quien le sirva!</p>
+        <!-- REEMPLAZAR: cada recurso con su PDF en la carpeta descargas/ -->
+        <ul class="recursos">
+          <li><div><h3>Recurso de ejemplo 1</h3><p>Breve descripción del material.</p></div><span class="pronto">Próximamente</span></li>
+          <li><div><h3>Recurso de ejemplo 2</h3><p>Breve descripción del material.</p></div><span class="pronto">Próximamente</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto" class="pie">
+    <h2>Contacto</h2>
+    <!-- REEMPLAZAR: datos reales -->
+    <ul class="contacto">
+      <li><a href="mailto:mail@ejemplo.com">mail@ejemplo.com</a></li>
+      <li><a href="https://instagram.com/" rel="noopener">Instagram</a></li>
+      <li><a href="https://wa.me/5491100000000" rel="noopener">WhatsApp</a></li>
+    </ul>
+    <p class="legal">© <span id="anio"></span> Nombre de la marca</p>
+  </footer>
+
+  <script src="js/productos.js" defer></script>
+  <script src="js/catalogo.js" defer></script>
+</body>
+</html>
