@@ -133,6 +133,17 @@ p { margin: 0 0 1em; }
   background: var(--fondo); border: 1px solid var(--linea);
 }
 .etiqueta-digital { background: var(--digital); border-style: dashed; }
+.etiqueta-pronto { background: transparent; border: 2px dashed var(--arena-oscura); }
+.tarjeta-pronto .tarjeta-media { opacity: .55; }
+
+.a-medida {
+  margin-top: 40px; padding: 24px; text-align: center;
+  border: 2px dashed var(--arena-oscura); border-radius: var(--radio); background: var(--fondo);
+}
+.a-medida h3 { font-size: 2.2rem; }
+.a-medida p { color: var(--suave); max-width: 52ch; margin: 0 auto 16px; }
+.a-medida .boton { display: inline-block; font-size: 1.6rem; }
+
 .opciones { list-style: none; padding: 0; margin: 0 0 10px; display: flex; flex-wrap: wrap; gap: 6px; }
 .opciones li { font-size: .82rem; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--linea); }
 .precio { margin: auto 0 0 !important; padding-top: 6px; font-weight: 700; color: var(--texto) !important; font-size: 1.05rem !important; }

@@ -16,6 +16,8 @@
     imanes: '<path d="M6 4v8a6 6 0 0 0 12 0V4h-4v8a2 2 0 0 1-4 0V4H6Zm0 4h4m4 0h4"/>',
     diseno: '<path d="m15 4 5 5-10 10H5v-5L15 4Zm-3 3 5 5"/>',
     dislexia: '<path d="M4 5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4V5Zm16 0h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6V5Z"/>',
+    profes: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 10h7M8.5 14h7M8.5 18h4"/>',
+    disenadoras: '<circle cx="12" cy="5" r="2"/><path d="M12 7v3m-3 0h6l3 10H6l3-10Z"/>',
   };
   const icono = (id) =>
     `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${iconos[id] || iconos.objetos}</svg>`;
@@ -27,7 +29,7 @@
     .join("");
 
   function tarjeta(p, cat) {
-    const precio = p.precio ? pesos.format(p.precio) : "Consultar";
+    const precio = p.proximamente ? "Próximamente" : p.precio ? pesos.format(p.precio) : "Consultar";
     const media = p.foto
       ? `<img src="${esc(p.foto)}" alt="${esc(p.nombre)}" width="400" height="300" loading="lazy" decoding="async">`
       : `<div class="tarjeta-icono">${icono(cat.id)}</div>`;
@@ -36,11 +38,11 @@
       : "";
     const etiqueta = p.tipo === "digital"
       ? '<span class="etiqueta etiqueta-digital">PDF / digital</span>'
-      : '<span class="etiqueta">Personalizado</span>';
-    return `<article class="tarjeta">
+      : '<span class="etiqueta">Físico</span>';
+    return `<article class="tarjeta${p.proximamente ? " tarjeta-pronto" : ""}">
       <div class="tarjeta-media">${media}</div>
       <div class="tarjeta-cuerpo">
-        ${etiqueta}
+        ${p.proximamente ? '<span class="etiqueta etiqueta-pronto">Próximamente</span>' : etiqueta}
         <h4>${esc(p.nombre)}</h4>
         ${p.detalle ? `<p>${esc(p.detalle)}</p>` : ""}
         ${opciones}

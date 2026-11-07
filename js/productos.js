@@ -116,4 +116,62 @@ window.CATEGORIAS = [
       { nombre: "Cuadernillo Ordeno las oraciones", detalle: "Con dibujos reales. PDF listo para descargar e imprimir.", precio: null, tipo: "digital" },
     ],
   },
+  {
+    id: "profes",
+    nombre: "De profes para profes",
+    bajada: "Guías prácticas para el día a día en la escuela de Provincia de Buenos Aires.",
+    productos: [
+      {
+        nombre: "Sistema ABC: inscripciones y listados",
+        detalle: "¿Recién recibida/o? Entendé cómo funciona el sistema ABC. PDF con audio explicativo.",
+        precio: null, tipo: "digital",
+      },
+      {
+        nombre: "Registro de asistencia en Pcia. de Bs. As.",
+        detalle: "Cómo usarlo paso a paso. PDF con audio explicativo.",
+        precio: null, tipo: "digital",
+      },
+      {
+        nombre: "Cómo hacer un acta escolar",
+        detalle: "Fundamentación y ejemplos de actas. PDF con audio explicativo.",
+        precio: null, tipo: "digital",
+      },
+      {
+        nombre: "Carga de licencias",
+        detalle: "¿No podés cargar tu licencia por enfermedad, por familiar o por psiquiatría? Instructivo digital.",
+        precio: null, tipo: "digital",
+      },
+      {
+        nombre: "Carga de licencias especiales",
+        detalle: "Por psiquiatría o enfermedad crónica. Instructivo digital.",
+        precio: null, tipo: "digital",
+      },
+    ],
+  },
+  {
+    id: "disenadoras",
+    nombre: "Mini Diseñadoras",
+    bajada: "Para las que sueñan con hacer ropa, preparar desfiles y decorar a sus muñecas.",
+    productos: [
+      {
+        nombre: "Kit para dibujar e imprimir",
+        detalle: "Explicación de las proporciones para bocetar el cuerpo humano, con video explicativo. Incluye 12 contornos de cuerpos y 8 de accesorios para diseñar arriba. PDF para imprimir en A4.",
+        precio: null, tipo: "digital",
+      },
+      {
+        nombre: "Kit Mini Diseñadoras (caja)",
+        detalle: "Figurines impresos de las décadas del 20, 40, 60 y 80; bocetos y siluetas en blanco y negro; moldes base de remera, pantalón, pollera y short; muestrarios de telas, botones y accesorios; tanza elastizada y canutillos para armar una pulsera.",
+        precio: null, tipo: "fisico",
+      },
+      {
+        nombre: "Mi historia y la Moda",
+        detalle: "Cuento ilustrado en imprenta mayúscula, para leer y soñar a lo grande. PDF.",
+        precio: null, tipo: "digital",
+      },
+      {
+        nombre: "Kit de equipos de fútbol y sus camisetas",
+        precio: null, tipo: "fisico", proximamente: true,
+      },
+    ],
+  },
 ];
