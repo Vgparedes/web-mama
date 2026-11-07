@@ -117,6 +117,22 @@ p { margin: 0 0 1em; }
 }
 .barra-icono svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
+/* En compu: marca a la izquierda y barras a la derecha, todo en una pantalla */
+@media (min-width: 900px) {
+  .inicio {
+    max-width: var(--ancho);
+    min-height: calc(100vh - 62px);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    padding-top: 32px; padding-bottom: 32px;
+  }
+  .inicio-marca { text-align: center; }
+  .logo { width: 190px; }
+  .inicio h1 { font-size: clamp(2.8rem, 4.4vw, 3.8rem); }
+  .lema { margin-bottom: 0; }
+  .barras { gap: 12px; }
+  .barras a { min-height: 56px; }
+}
+
 .icono-cat {
   display: grid; place-items: center; flex: none;
   border-radius: 50%; background: var(--tinte, var(--durazno)); color: var(--cacao);
