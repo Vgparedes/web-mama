@@ -6,6 +6,7 @@
   --papel: #fffaf4;        /* hojas y tarjetas */
   --cacao: #3a2419;        /* texto y botones */
   --cacao-suave: #6e4f3f;  /* texto secundario */
+  --chocolate: #6b412d;    /* barras del inicio */
   --renglon: #ebcdb8;      /* líneas de cuaderno y bordes */
   --margen: #d98c86;       /* línea roja del margen */
   --cinta: rgb(232 194 90 / .75); /* cinta de papel */
@@ -88,63 +89,39 @@ p { margin: 0 0 1em; }
 .seccion > h2, .tienda-cab, .bajada { text-align: center; }
 .bajada, .tienda-cab p { color: var(--cacao-suave); max-width: 58ch; margin: 0 auto 32px; }
 
-/* ---------- Inicio: hoja de cuaderno + stickers ---------- */
-.inicio {
-  display: grid; gap: 40px; align-items: center;
-  grid-template-columns: 1.1fr 1fr;
-  padding-top: 64px;
-}
-.hoja {
-  position: relative;
-  padding: 48px 32px 40px 76px;
-  background-color: var(--papel);
-  /* renglones + margen rojo */
-  background-image:
-    linear-gradient(90deg, transparent 54px, var(--margen) 54px, var(--margen) 56px, transparent 56px),
-    repeating-linear-gradient(180deg, transparent 0 31px, var(--renglon) 31px 32px);
-  background-position: 0 0, 0 18px;
-  border-radius: 6px 6px 18px 6px;
-  box-shadow: 0 1px 0 var(--renglon), 6px 8px 0 rgb(58 36 25 / .08);
-  transform: rotate(-1deg);
-}
-.hoja h1 { margin-bottom: .3em; }
-.lema { font-size: 1.15rem; line-height: 32px; max-width: 34ch; color: var(--cacao-suave); margin-bottom: 28px; }
-.acciones { display: flex; flex-wrap: wrap; gap: 14px; }
+/* ---------- Inicio: logo + barras de chocolate ---------- */
+.inicio { max-width: 560px; text-align: center; padding-top: 48px; }
+.logo { width: 150px; margin: 0 auto 14px; filter: drop-shadow(0 6px 14px rgb(58 36 25 / .15)); }
+.inicio h1 { font-size: clamp(2.3rem, 7vw, 3.4rem); margin-bottom: .2em; }
+.lema { font-size: 1.1rem; color: var(--cacao-suave); margin-bottom: 30px; }
 
-.atajos-titulo { font-size: 1.4rem; font-weight: 600; margin-bottom: 16px; text-align: center; }
-.atajos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.atajos a {
-  display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%;
-  padding: 14px 8px 12px; text-align: center; text-decoration: none;
-  font-weight: 700; font-size: .9rem; line-height: 1.25;
-  background: var(--papel); border: 2px solid var(--cacao); border-radius: 16px;
-  box-shadow: 3px 3px 0 var(--cacao);
-  transition: transform .15s;
+.barras { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.barras a {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 62px; padding: 10px 64px;
+  font: 600 1.2rem/1.2 var(--titulos); letter-spacing: .01em;
+  text-decoration: none;
+  background: var(--chocolate); color: var(--papel);
+  border-radius: 14px;
+  box-shadow: 0 5px 0 var(--cacao);
+  transition: transform .15s, box-shadow .15s;
 }
-.atajos li:nth-child(3n+1) a { transform: rotate(-2deg); }
-.atajos li:nth-child(3n+2) a { transform: rotate(1.5deg); }
-.atajos li:nth-child(3n) a { transform: rotate(-.5deg); }
-.atajos a:hover, .atajos a:focus-visible { transform: rotate(0) scale(1.04); }
-.atajos .icono-cat { width: 52px; height: 52px; }
+.barras a:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--cacao); }
+.barras a:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--cacao); }
+.barra-icono {
+  position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  width: 42px; height: 42px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--papel); color: var(--chocolate);
+}
+.barra-icono svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
 .icono-cat {
   display: grid; place-items: center; flex: none;
   border-radius: 50%; background: var(--tinte, var(--durazno)); color: var(--cacao);
 }
 .icono-cat svg { width: 58%; height: 58%; }
-
-@media (max-width: 899px) {
-  .inicio { grid-template-columns: 1fr; padding-top: 36px; gap: 36px; }
-  .hoja { padding: 40px 20px 32px 64px; transform: rotate(-.6deg); }
-  .hoja { background-image:
-    linear-gradient(90deg, transparent 44px, var(--margen) 44px, var(--margen) 46px, transparent 46px),
-    repeating-linear-gradient(180deg, transparent 0 31px, var(--renglon) 31px 32px); }
-}
-@media (max-width: 420px) {
-  .atajos { gap: 10px; }
-  .atajos a { font-size: .8rem; padding: 12px 4px 10px; }
-  .atajos .icono-cat { width: 44px; height: 44px; }
-}
 
 /* ---------- Yo soy ---------- */
 .yo-soy { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; }

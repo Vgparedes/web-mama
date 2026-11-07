@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grandstander:wght@600;800&family=Nunito:wght@400;700&display=swap">
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 <body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -33,22 +33,35 @@
   </header>
 
   <main id="contenido">
-    <!-- INICIO: hoja de cuaderno + stickers de categorías -->
+    <!-- INICIO: logo + barras (estilo link de Instagram) -->
     <section id="inicio" class="inicio">
-      <div class="hoja">
-        <span class="cinta" aria-hidden="true"></span>
-        <h1>Nombre de la marca</h1>
-        <p class="lema">Materiales hechos con amor, por profes para profes. Juegos, cuadernillos y objetos personalizados para el aula y la casa.</p>
-        <div class="acciones">
-          <a class="boton" href="#tienda">Ver la tienda</a>
-          <a class="boton boton-claro" href="#gratis">Recursos gratis</a>
-        </div>
-      </div>
+      <img class="logo" src="img/logo.svg" alt="Logo de la marca" width="150" height="150" fetchpriority="high">
+      <h1>Nombre de la marca</h1>
+      <p class="lema">Materiales hechos con amor, por profes para profes.</p>
 
-      <div class="atajos-caja">
-        <h2 class="atajos-titulo">¿Qué estás buscando?</h2>
-        <ul id="atajos" class="atajos"></ul>
-      </div>
+      <ul class="barras">
+        <li><a href="#tienda">
+          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Zm4 0V7a3 3 0 0 1 6 0v1"/></svg></span>
+          Tienda personalizada</a></li>
+        <li><a href="#yo-soy">
+          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.3-7 8-7s7 2.5 8 7"/></svg></span>
+          Yo soy</a></li>
+        <li><a href="#trayectoria">
+          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 21V4m0 1h11l-2 4 2 4H6"/></svg></span>
+          Mi trayectoria</a></li>
+        <li><a href="#tienda" data-abrir="profes">
+          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 10h7M8.5 14h7M8.5 18h4"/></svg></span>
+          De profes para profes</a></li>
+        <li><a href="#tienda" data-abrir="dislexia">
+          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4V5Zm16 0h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6V5Z"/></svg></span>
+          Todo para dislexia</a></li>
+        <li><a href="#tienda" data-abrir="disenadoras">
+          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v3m-3 0h6l3 10H6l3-10Z"/></svg></span>
+          Mini Diseñadoras</a></li>
+        <li><a href="#gratis">
+          <span class="barra-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M3 9h18M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9Zm0 0c2-4 6-4 6-1.5S14 9 12 9Z"/></svg></span>
+          Recursos gratuitos</a></li>
+      </ul>
     </section>
 
     <!-- YO SOY -->
@@ -141,7 +154,7 @@
     <p class="legal">© <span id="anio"></span> Nombre de la marca</p>
   </footer>
 
-  <script src="js/productos.js?v=3" defer></script>
-  <script src="js/catalogo.js?v=3" defer></script>
+  <script src="js/productos.js?v=4" defer></script>
+  <script src="js/catalogo.js?v=4" defer></script>
 </body>
 </html>
