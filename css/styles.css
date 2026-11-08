@@ -148,11 +148,10 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
 .hero__nombre { font: 800 clamp(2.4rem, 4.4vw, 3.6rem)/1.05 var(--titulos); letter-spacing: .01em; }
 .hero h1 { font-size: clamp(1.5rem, 2.5vw, 2.1rem); color: var(--cacao-suave); margin-bottom: 18px; }
 .hero__lead { font-size: 1.15rem; color: var(--cacao-suave); margin-bottom: 20px; max-width: 34em; }
-.hero__dato {
-  display: inline-block; padding: 6px 14px; border-radius: 999px;
-  font-weight: 700; font-size: .95rem;
-  background: var(--papel); border: 2px dashed var(--chocolate);
-}
+/* "Hecho a pedido": listón de tela ondulado (SVG en el index); el texto sigue la ola del listón */
+.hero__dato { display: inline-block; width: 360px; max-width: 100%; margin-top: 14px; transform: rotate(-1.5deg); }
+.hero__dato svg { display: block; width: 100%; height: auto; }
+.hero__dato text { font: 700 19px var(--titulos); letter-spacing: .02em; fill: var(--papel); }
 
 .barras { display: grid; gap: 12px; }
 .barras a {
@@ -202,13 +201,13 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
   background: var(--tinte, var(--papel)); color: var(--cacao);
   border-right: 3px solid var(--chocolate-oscuro);
 }
-.barra__icono svg { width: 28px; height: 28px; stroke-width: 1.9; }
+.barra__icono svg { width: 32px; height: 32px; stroke-width: 1.6; }
 @media (max-width: 639px) {
   .barras a { padding: 8px 48px 8px 70px; }
   .barras a::before { left: 62px; }
   .barras a::after { right: 16px; }
   .barra__icono { width: 54px; height: auto; left: 0; }
-  .barra__icono svg { width: 25px; height: 25px; }
+  .barra__icono svg { width: 29px; height: 29px; }
 }
 
 /* ---------- Íconos de categoría (con color) ---------- */
@@ -392,5 +391,6 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
   .hero__marca img { width: 96px; height: 96px; }
   .hero__nombre { font-size: 2.1rem; }
   .hero h1 { font-size: 1.1rem; font-family: var(--cuerpo); font-weight: 700; letter-spacing: .03em; margin-bottom: 0; }
-  .hero__lead, .hero__dato { display: none; }
+  .hero__lead { display: none; }
+  .hero__dato { width: 320px; margin-top: 12px; }
 }
