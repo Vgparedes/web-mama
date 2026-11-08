@@ -38,7 +38,7 @@
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; }
-html { scroll-padding-top: calc(var(--nav) + 12px); }
+html { scroll-padding-top: var(--nav); } /* las secciones quedan pegadas justo debajo del menú */
 body {
   font: 17px/1.6 var(--cuerpo);
   color: var(--cacao);
@@ -349,8 +349,9 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
 /* En compu, Yo soy y Mi trayectoria más compactas para que entren juntas en una pantalla */
 @media (min-width: 761px) {
   .yo-y-trayectoria { min-height: calc(100svh - var(--nav)); display: flex; flex-direction: column; }
-  /* al tocar "Sobre mí" queda pegado justo debajo del menú (sin el margen de 12px de las otras secciones) */
-  #yo-soy { flex: 1; display: flex; align-items: center; padding: 36px 0; scroll-margin-top: -12px; }
+  #yo-soy { flex: 1; display: flex; align-items: center; padding: 36px 0; }
+  /* Recursos gratuitos + el pie llenan la pantalla, así al tocar "Gratis" no asoma la sección de arriba */
+  #gratis { min-height: calc(100svh - var(--nav) - 300px); display: flex; flex-direction: column; justify-content: center; }
   .yo-soy { grid-template-columns: 250px 1fr; }
   #trayectoria { padding: 40px 0 44px; }
   #trayectoria .cabeza { margin-bottom: 22px; }
