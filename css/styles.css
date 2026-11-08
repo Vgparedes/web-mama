@@ -184,6 +184,32 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
   .barras a { min-height: 54px; font-size: 1.1rem; padding: 8px 54px; }
   .barra__icono { width: 38px; height: 38px; left: 8px; }
 }
+/* Barras con pespunte: pestaña de color con el ícono, costura punteada y flechita.
+   El color de la pestaña (--tinte) va en el index y es decorativo: el nombre siempre está escrito */
+.barras a { padding: 8px 64px 8px 84px; overflow: hidden; }
+.barras a::before {
+  content: ""; position: absolute; inset: 6px 6px 6px 70px;
+  border: 2px dashed rgb(255 250 244 / .45); border-radius: 9px; pointer-events: none;
+}
+.barras a::after {
+  content: "→"; position: absolute; right: 22px; top: 50%; transform: translateY(-50%);
+  font-size: 1.3rem; transition: transform .2s;
+}
+@media (hover: hover) { .barras a:hover::after { transform: translate(5px, -50%); } }
+.barra__icono {
+  left: 0; top: 0; bottom: 0; transform: none; width: 64px; height: auto;
+  border-radius: 14px 0 0 14px;
+  background: var(--tinte, var(--papel)); color: var(--cacao);
+  border-right: 3px solid var(--chocolate-oscuro);
+}
+.barra__icono svg { width: 28px; height: 28px; stroke-width: 1.9; }
+@media (max-width: 639px) {
+  .barras a { padding: 8px 48px 8px 70px; }
+  .barras a::before { left: 62px; }
+  .barras a::after { right: 16px; }
+  .barra__icono { width: 54px; height: auto; left: 0; }
+  .barra__icono svg { width: 25px; height: 25px; }
+}
 
 /* ---------- Íconos de categoría (con color) ---------- */
 .icono-cat {

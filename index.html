@@ -13,7 +13,7 @@
   <!-- fuentes alojadas en el repo (fonts/): se precargan para que el título salga con su letra sin esperar -->
   <link rel="preload" href="fonts/grandstander.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=15">
+  <link rel="stylesheet" href="css/styles.css?v=17">
 </head>
 <body>
   <header class="nav">
@@ -60,30 +60,26 @@
           </div>
           <h1>Materiales didácticos y personalizados para profes y familias</h1>
           <p class="hero__lead">Juegos en tela y acrílico, imanes, cuadernillos para dislexia y guías para docentes, hechos a pedido. Los PDF los imprimís o los usás desde la compu o el celu.</p>
-          <p class="hero__dato">36 materiales en 9 categorías</p>
         </div>
 
         <ul class="barras" aria-label="Accesos">
           <li><a href="#tienda">
-            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Zm4 0V7a3 3 0 0 1 6 0v1"/></svg></span>
-            Tienda personalizada</a></li>
+            <span class="barra__icono" style="--tinte:#f3d9a4" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Zm4 0V7a3 3 0 0 1 6 0v1"/></svg></span>
+            Tienda</a></li>
+          <li><a href="#tienda" data-abrir="estampados">
+            <span class="barra__icono" style="--tinte:#f6c9b8" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><path d="M10.5 7.5v4h3v-4"/><rect x="5" y="11.5" width="14" height="4" rx="1"/><path d="M5 19.5h14"/></svg></span>
+            Estampados personalizados</a></li>
           <li><a href="#yo-soy">
-            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.3-7 8-7s7 2.5 8 7"/></svg></span>
-            Yo soy</a></li>
-          <li><a href="#trayectoria">
-            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 21V4m0 1h11l-2 4 2 4H6"/></svg></span>
-            Mi trayectoria</a></li>
+            <span class="barra__icono" style="--tinte:#f3ccd9" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.3-7 8-7s7 2.5 8 7"/></svg></span>
+            Sobre mí</a></li>
           <li><a href="#tienda" data-abrir="profes">
-            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 10h7M8.5 14h7M8.5 18h4"/></svg></span>
+            <span class="barra__icono" style="--tinte:#d8e4cf" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 10h7M8.5 14h7M8.5 18h4"/></svg></span>
             De profes para profes</a></li>
           <li><a href="#tienda" data-abrir="dislexia">
-            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4V5Zm16 0h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6V5Z"/></svg></span>
+            <span class="barra__icono" style="--tinte:#f4e2a8" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h6a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H4V5Zm16 0h-6a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h6V5Z"/></svg></span>
             Todo para dislexia</a></li>
-          <li><a href="#tienda" data-abrir="disenadoras">
-            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v3m-3 0h6l3 10H6l3-10Z"/></svg></span>
-            Mini Diseñadoras</a></li>
           <li><a href="#gratis">
-            <span class="barra__icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M3 9h18M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9Zm0 0c2-4 6-4 6-1.5S14 9 12 9Z"/></svg></span>
+            <span class="barra__icono" style="--tinte:#cfe0d2" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1.5"/><path d="M3 9h18M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9Zm0 0c2-4 6-4 6-1.5S14 9 12 9Z"/></svg></span>
             Recursos gratuitos</a></li>
         </ul>
       </div>
@@ -201,7 +197,7 @@
     </div>
   </footer>
 
-  <script src="js/productos.js?v=15" defer></script>
-  <script src="js/catalogo.js?v=15" defer></script>
+  <script src="js/productos.js?v=17" defer></script>
+  <script src="js/catalogo.js?v=17" defer></script>
 </body>
 </html>

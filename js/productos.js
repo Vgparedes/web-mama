@@ -16,9 +16,9 @@ window.CATEGORIAS = [
     nombre: "Textiles",
     bajada: "Prendas y bolsas estampadas a tu gusto.",
     productos: [
-      { nombre: "Remeras", detalle: "Estampadas con el diseño que quieras.", precio: null, tipo: "fisico" },
-      { nombre: "Bolsas", detalle: "Bolsas de tela personalizadas.", precio: null, tipo: "fisico" },
-      { nombre: "Varios", detalle: "Consultá por otros textiles.", precio: null, tipo: "fisico" },
+      { nombre: "Remeras", detalle: "Estampadas con el diseño que quieras.", precio: null, tipo: "fisico", estampado: true },
+      { nombre: "Bolsas", detalle: "Bolsas de tela personalizadas.", precio: null, tipo: "fisico", estampado: true },
+      { nombre: "Varios", detalle: "Consultá por otros textiles.", precio: null, tipo: "fisico", estampado: true },
     ],
   },
   {
@@ -26,7 +26,7 @@ window.CATEGORIAS = [
     nombre: "Objetos",
     bajada: "Regalos y objetos personalizados.",
     productos: [
-      { nombre: "Tazas", detalle: "Con tu foto, frase o diseño.", precio: null, tipo: "fisico" },
+      { nombre: "Tazas", detalle: "Con tu foto, frase o diseño.", precio: null, tipo: "fisico", estampado: true },
       { nombre: "Carteles", detalle: "Para el aula, el consultorio o la casa.", precio: null, tipo: "fisico" },
       { nombre: "Varios", detalle: "Consultá por otros objetos.", precio: null, tipo: "fisico" },
     ],
@@ -64,7 +64,7 @@ window.CATEGORIAS = [
     nombre: "Imanes",
     bajada: "Para trabajar en la heladera, la pizarra o la base imantada.",
     productos: [
-      { nombre: "Base estampada tamaño A4", detalle: "Se estampa con la foto que quieras.", precio: null, tipo: "fisico" },
+      { nombre: "Base estampada tamaño A4", detalle: "Se estampa con la foto que quieras.", precio: null, tipo: "fisico", estampado: true },
       {
         nombre: "Kit de fichas: 20 imanes de 5 × 5 cm",
         precio: null, tipo: "fisico",

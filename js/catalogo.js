@@ -13,6 +13,7 @@ const SITIO_KRSP = ""; // ej. "https://krsp.com.ar"
 
   const iconos = {
     todo: '<path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>',
+    estampados: '<circle cx="12" cy="5" r="2.5"/><path d="M10.5 7.5v4h3v-4"/><rect x="5" y="11.5" width="14" height="4" rx="1"/><path d="M5 19.5h14"/>',
     textiles: '<path d="M8 4 4 7l2 4 2-1v10h8V10l2 1 2-4-4-3c-.5 1.5-2 2.5-4 2.5S8.5 5.5 8 4Z"/>',
     objetos: '<path d="M5 6h11v9a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V6Zm11 2h1.5a2.5 2.5 0 0 1 0 5H16"/>',
     acrilico: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
@@ -25,14 +26,18 @@ const SITIO_KRSP = ""; // ej. "https://krsp.com.ar"
   };
   // Color de fondo del ícono de cada categoría (decorativo: el nombre siempre va escrito al lado)
   const tintes = {
-    todo: "#f8dcc7", textiles: "#f6c9b8", objetos: "#f3d9a4", acrilico: "#cfe0d2", tela: "#e9cfe3",
+    todo: "#f8dcc7", estampados: "#f6c9b8", textiles: "#f6c9b8", objetos: "#f3d9a4", acrilico: "#cfe0d2", tela: "#e9cfe3",
     imanes: "#f2c6c6", diseno: "#ddd6ee", dislexia: "#f4e2a8", profes: "#d8e4cf", disenadoras: "#f3ccd9",
   };
   const icono = (id) =>
     `<span class="icono-cat" style="--tinte:${tintes[id] || tintes.todo}" aria-hidden="true"><svg viewBox="0 0 24 24">${iconos[id] || iconos.objetos}</svg></span>`;
 
-  // Índice de categorías, con "Todo" primero
-  const todas = [{ id: "todo", nombre: "Todo" }, ...window.CATEGORIAS];
+  // Índice de categorías, con "Todo" primero y después "Estampados", que junta los productos
+  // marcados con estampado: true en productos.js (de cualquier categoría)
+  const todas = [{ id: "todo", nombre: "Todo" }, { id: "estampados", nombre: "Estampados" }, ...window.CATEGORIAS];
+  const estampados = () => window.CATEGORIAS
+    .map((c) => ({ ...c, productos: c.productos.filter((p) => p.estampado) }))
+    .filter((c) => c.productos.length);
   filtros.innerHTML = todas
     .map((c, i) => `<button type="button" class="chip" data-cat="${c.id}" aria-pressed="${i === 0}">${icono(c.id)}<span>${esc(c.nombre)}</span></button>`)
     .join("");
@@ -66,7 +71,8 @@ const SITIO_KRSP = ""; // ej. "https://krsp.com.ar"
 
   function dibujar(catId) {
     const enTodo = catId === "todo";
-    const lista = enTodo ? window.CATEGORIAS : window.CATEGORIAS.filter((c) => c.id === catId);
+    const lista = catId === "estampados" ? estampados()
+      : enTodo ? window.CATEGORIAS : window.CATEGORIAS.filter((c) => c.id === catId);
     grilla.innerHTML = lista
       .map((c) => {
         const productos = enTodo ? c.productos.slice(0, muestra()) : c.productos;
