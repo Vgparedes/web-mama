@@ -142,7 +142,11 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
   display: flex; align-items: center;
 }
 .hero__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-.hero h1 { font-size: clamp(2.3rem, 4.4vw, 3.6rem); margin-bottom: 20px; }
+/* logo y nombre grandes arriba; el título pasa a ser la línea de qué se vende */
+.hero__marca { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+.hero__marca img { width: 120px; height: 120px; flex: none; filter: drop-shadow(0 6px 14px rgb(58 36 25 / .15)); }
+.hero__nombre { font: 800 clamp(2.4rem, 4.4vw, 3.6rem)/1.05 var(--titulos); letter-spacing: .01em; }
+.hero h1 { font-size: clamp(1.5rem, 2.5vw, 2.1rem); color: var(--cacao-suave); margin-bottom: 18px; }
 .hero__lead { font-size: 1.15rem; color: var(--cacao-suave); margin-bottom: 20px; max-width: 34em; }
 .hero__dato {
   display: inline-block; padding: 6px 14px; border-radius: 999px;
@@ -353,3 +357,14 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
 #catalogo { scroll-margin-top: 12px; }
 @media (max-width: 899px) { #catalogo { scroll-margin-top: 84px; } }
 @media (max-width: 639px) { .creado-por { width: 100%; margin-top: 8px; } }
+
+/* Inicio en celu: como un link de bio. Logo, nombre, una línea de qué se vende y las barras */
+@media (max-width: 639px) {
+  .hero { padding-top: calc(var(--nav) + 24px); padding-bottom: 40px; }
+  .hero__grid { gap: 22px; }
+  .hero__marca { flex-direction: column; gap: 8px; margin-bottom: 8px; }
+  .hero__marca img { width: 96px; height: 96px; }
+  .hero__nombre { font-size: 2.1rem; }
+  .hero h1 { font-size: 1.1rem; font-family: var(--cuerpo); font-weight: 700; letter-spacing: .03em; margin-bottom: 0; }
+  .hero__lead, .hero__dato { display: none; }
+}

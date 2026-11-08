@@ -13,7 +13,7 @@
   <!-- fuentes alojadas en el repo (fonts/): se precargan para que el título salga con su letra sin esperar -->
   <link rel="preload" href="fonts/grandstander.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=14">
+  <link rel="stylesheet" href="css/styles.css?v=15">
 </head>
 <body>
   <header class="nav">
@@ -53,6 +53,11 @@
     <section id="inicio" class="hero">
       <div class="wrap hero__grid">
         <div class="hero__texto">
+          <!-- REEMPLAZAR: logo definitivo en img/logo.svg y el nombre de la marca -->
+          <div class="hero__marca">
+            <img src="img/logo.svg" alt="" width="120" height="120" fetchpriority="high">
+            <p class="hero__nombre">Nombre de la marca</p>
+          </div>
           <h1>Materiales didácticos y personalizados para profes y familias</h1>
           <p class="hero__lead">Juegos en tela y acrílico, imanes, cuadernillos para dislexia y guías para docentes, hechos a pedido. Los PDF los imprimís o los usás desde la compu o el celu.</p>
           <p class="hero__dato">36 materiales en 9 categorías</p>
@@ -196,7 +201,7 @@
     </div>
   </footer>
 
-  <script src="js/productos.js?v=14" defer></script>
-  <script src="js/catalogo.js?v=14" defer></script>
+  <script src="js/productos.js?v=15" defer></script>
+  <script src="js/catalogo.js?v=15" defer></script>
 </body>
 </html>
