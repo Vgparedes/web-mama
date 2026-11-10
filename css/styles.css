@@ -333,8 +333,8 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
 }
 .linea li { position: relative; text-align: center; }
 .anio {
-  display: inline-grid; place-items: center; min-width: 56px; height: 56px; padding: 0 10px; margin-bottom: 12px;
-  font: 800 1.05rem/1 var(--titulos);
+  display: inline-grid; place-items: center; width: 56px; height: 56px; padding: 0; margin-bottom: 12px;
+  font: 800 .9rem/1 var(--titulos);
   background: var(--papel); border: 3px solid var(--cacao); border-radius: 999px;
 }
 .linea h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 4px; }
@@ -343,7 +343,7 @@ h1, h2, h3, h4 { font-family: var(--titulos); font-weight: 800; line-height: 1.1
   .linea { grid-template-columns: 1fr; gap: 20px; }
   .linea::before { left: 27px; right: auto; top: 10px; bottom: 10px; border-top: 0; border-left: 3px dashed var(--cacao-suave); }
   .linea li { text-align: left; display: grid; grid-template-columns: 56px 1fr; column-gap: 16px; }
-  .anio { grid-row: span 2; margin: 0; font-size: .95rem; }
+  .anio { grid-row: span 2; margin: 0; font-size: .85rem; }
 }
 
 /* En compu, Yo soy y Mi trayectoria más compactas para que entren juntas en una pantalla */
