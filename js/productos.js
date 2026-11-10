@@ -8,6 +8,8 @@
 //   tipo    → "fisico" o "digital" (digital = PDF / archivo que se envía)
 //   foto    → ruta de la imagen, ej: "img/productos/taza.webp" (opcional)
 //   opciones→ lista de variantes (temas, modelos, etc.) (opcional)
+//   ficha   → datos en filas "Dato: valor" (color, talles, tela...) (opcional)
+//             ej: ficha: [["Color", "Blanca o negra"], ["Talles", "M al XXL"]]
 // =====================================================================
 
 window.CATEGORIAS = [
@@ -16,8 +18,36 @@ window.CATEGORIAS = [
     nombre: "Textiles",
     bajada: "Prendas y bolsas estampadas a tu gusto.",
     productos: [
-      { nombre: "Remeras", detalle: "Estampadas con el diseño que quieras.", precio: null, tipo: "fisico", estampado: true },
-      { nombre: "Bolsas", detalle: "Bolsas de tela personalizadas.", precio: null, tipo: "fisico", estampado: true },
+      {
+        nombre: "Remera de hombre",
+        detalle: "Escote redondo y manga corta. Estampado en el frente o la espalda.",
+        precio: null, tipo: "fisico", estampado: true,
+        ficha: [["Color", "Blanca o negra"], ["Talles", "M al XXL. En blanca, también oversize"], ["Tela", "Algodón premium"], ["Estampado", "DTF"]],
+      },
+      {
+        nombre: "Remera de mujer",
+        detalle: "Manga corta. Estampado en el frente o la espalda.",
+        precio: null, tipo: "fisico", estampado: true,
+        ficha: [["Color", "Blanca, negra o de colores"], ["Escote", "Redondo. Las de colores, profundo"], ["Talles", "S al XXL"], ["Tela", "Algodón premium"], ["Estampado", "DTF"]],
+      },
+      {
+        nombre: "Remera de niño",
+        detalle: "Escote redondo y manga corta. Estampado en el frente o la espalda.",
+        precio: null, tipo: "fisico", estampado: true,
+        ficha: [["Color", "Blanca"], ["Talles", "6 al 14"], ["Tela", "Algodón premium"], ["Estampado", "DTF"]],
+      },
+      {
+        nombre: "Remeras publicitarias × 6 unidades",
+        detalle: "Unisex, escote redondo y manga corta. Para eventos, equipos o tu emprendimiento.",
+        precio: null, tipo: "fisico", estampado: true,
+        ficha: [["Color", "Blanca"], ["Talles", "M, XL y XXL"], ["Tela", "70 % poliéster y 30 % algodón"], ["Estampado", "Sublimación"]],
+      },
+      {
+        nombre: "Bolsa tote bag con tiras",
+        detalle: "Bolsa de tela estampada con tu diseño.",
+        precio: null, tipo: "fisico", estampado: true,
+        ficha: [["Color y tela", "Cruda de lienzo, o negra o de colores de gabardina"], ["Estampado", "DTF"]],
+      },
       { nombre: "Varios", detalle: "Consultá por otros textiles.", precio: null, tipo: "fisico", estampado: true },
     ],
   },
@@ -26,7 +56,34 @@ window.CATEGORIAS = [
     nombre: "Objetos",
     bajada: "Regalos y objetos personalizados.",
     productos: [
-      { nombre: "Tazas", detalle: "Con tu foto, frase o diseño.", precio: null, tipo: "fisico", estampado: true },
+      {
+        nombre: "Taza de cerámica recta",
+        detalle: "Con tu foto, frase o diseño.",
+        precio: null, tipo: "fisico", estampado: true,
+        ficha: [["Color", "Blanca"], ["Material", "Cerámica importada"], ["Estampado", "Sublimación"]],
+      },
+      {
+        nombre: "Tazas con asa de corazón × 2 unidades",
+        detalle: "Ideales para regalar de a dos.",
+        precio: null, tipo: "fisico", estampado: true,
+        ficha: [["Color", "Blanca"], ["Material", "Cerámica importada"], ["Estampado", "Sublimación"]],
+      },
+      {
+        nombre: "Taza con interior de color y cucharita",
+        precio: null, tipo: "fisico", estampado: true,
+        ficha: [["Color", "Combinada"], ["Material", "Cerámica importada"], ["Estampado", "Consultar"]],
+      },
+      {
+        nombre: "Taza para chicos con nombre",
+        precio: null, tipo: "fisico", estampado: true,
+        ficha: [["Color", "Blanca"], ["Material", "Polímero plástico"], ["Estampado", "Sublimación"]],
+      },
+      {
+        nombre: "Tazas souvenir para chicos × 6 unidades",
+        detalle: "Para cumpleaños y eventos.",
+        precio: null, tipo: "fisico", estampado: true,
+        ficha: [["Opciones", "De plástico de colores (estampado DTF) o de polímero blanco (sublimación)"]],
+      },
       { nombre: "Carteles", detalle: "Para el aula, el consultorio o la casa.", precio: null, tipo: "fisico" },
       { nombre: "Varios", detalle: "Consultá por otros objetos.", precio: null, tipo: "fisico" },
     ],
@@ -64,7 +121,12 @@ window.CATEGORIAS = [
     nombre: "Imanes",
     bajada: "Para trabajar en la heladera, la pizarra o la base imantada.",
     productos: [
-      { nombre: "Base estampada tamaño A4", detalle: "Se estampa con la foto que quieras.", precio: null, tipo: "fisico", estampado: true },
+      {
+        nombre: "Base estampada tamaño A4",
+        detalle: "Se estampa con la foto que quieras.",
+        precio: null, tipo: "fisico", estampado: true,
+        ficha: [["Material", "Imantada o de metal"], ["Estampado", "Sublimación"]],
+      },
       {
         nombre: "Kit de fichas: 20 imanes de 5 × 5 cm",
         precio: null, tipo: "fisico",

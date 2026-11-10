@@ -13,7 +13,7 @@
   <!-- fuentes alojadas en el repo (fonts/): se precargan para que el título salga con su letra sin esperar -->
   <link rel="preload" href="fonts/grandstander.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/styles.css?v=30">
+  <link rel="stylesheet" href="css/styles.css?v=32">
 </head>
 <body>
   <header class="nav">
@@ -100,6 +100,16 @@
           <p>Todo se hace a pedido. Los materiales en PDF los podés imprimir o trabajar desde la compu o el celu.</p>
         </header>
 
+        <!-- Cómo funcionan los pedidos: plazos, pago y entrega -->
+        <ul class="como-pedir">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><strong>Demora</strong>Entre 5 y 7 días hábiles, una vez elegido el diseño.</div></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/></svg>
+            <div><strong>Pago</strong>Se empieza a trabajar una vez acreditado el pago.</div></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10Z"/><circle cx="12" cy="11" r="2"/></svg>
+            <div><strong>Entrega</strong>Retiro en CABA (Puerto Madero) o zona sur (Avellaneda). Envíos a cargo del cliente.</div></li>
+        </ul>
+
         <div class="tienda">
           <nav class="indice" aria-label="Categorías de la tienda">
             <div id="filtros" class="filtros" role="group" aria-label="Filtrar por categoría"></div>
@@ -120,6 +130,12 @@
         </div>
       </div>
     </section>
+
+    <!-- Detalle de un producto: lo llena js/catalogo.js al tocar "Ver detalle" -->
+    <dialog id="detalle" class="detalle" aria-labelledby="detalle-titulo">
+      <button type="button" class="detalle__cerrar" aria-label="Cerrar"><span aria-hidden="true">✕</span></button>
+      <div class="detalle__cuerpo"></div>
+    </dialog>
 
     <!-- YO SOY -->
     <!-- en compu, Yo soy + Mi trayectoria llenan justo una pantalla -->
@@ -205,7 +221,7 @@
     </div>
   </footer>
 
-  <script src="js/productos.js?v=30" defer></script>
-  <script src="js/catalogo.js?v=30" defer></script>
+  <script src="js/productos.js?v=32" defer></script>
+  <script src="js/catalogo.js?v=32" defer></script>
 </body>
 </html>

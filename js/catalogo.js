@@ -1,8 +1,13 @@
 // Página de KRSp (los que hicimos la web). Mientras esté vacío, el logo del pie no lleva a ningún lado.
 const SITIO_KRSP = ""; // ej. "https://krsp.com.ar"
 
+// REEMPLAZAR: número de WhatsApp de la tienda (el mismo del pie), con 549 + característica, sin espacios.
+// El botón "Consultar por WhatsApp" de cada producto arma el mensaje con el nombre del producto.
+const WHATSAPP = "5491100000000";
+
 // Dibuja la tienda a partir de js/productos.js: una fila de categorías y las tarjetas de la elegida.
 // No hay carrito todavía: cada tarjeta muestra precio o "Consultar".
+// Al tocar una tarjeta se abre el detalle (fotos, ficha, opciones y botón de WhatsApp).
 (function () {
   const filtros = document.getElementById("filtros");
   const grilla = document.getElementById("catalogo");
@@ -34,6 +39,18 @@ const SITIO_KRSP = ""; // ej. "https://krsp.com.ar"
 
   // Índice de categorías, con "Todo" primero y después "Estampados", que junta los productos
   // marcados con estampado: true en productos.js (de cualquier categoría)
+  // Cada producto recibe un código (categoría + número) para encontrarlo al abrir su detalle
+  const porCodigo = {};
+  window.CATEGORIAS.forEach((c) => c.productos.forEach((p, i) => { p._cod = `${c.id}-${i}`; p._cat = c.id; porCodigo[p._cod] = p; }));
+  // fotos: acepta "foto" (una) o "fotos" (varias)
+  const fotosDe = (p) => p.fotos || (p.foto ? [p.foto] : []);
+  const precioDe = (p) => (p.proximamente ? "Próximamente" : p.precio ? pesos.format(p.precio) : "Consultar");
+  const etiquetaDe = (p) => p.proximamente
+    ? '<span class="etiqueta etiqueta--pronto">Próximamente</span>'
+    : p.tipo === "digital"
+      ? '<span class="etiqueta etiqueta--digital">PDF / digital</span>'
+      : '<span class="etiqueta">Físico</span>';
+
   const todas = [{ id: "todo", nombre: "Todo" }, { id: "estampados", nombre: "Estampados" }, ...window.CATEGORIAS];
   const estampados = () => window.CATEGORIAS
     .map((c) => ({ ...c, productos: c.productos.filter((p) => p.estampado) }))
@@ -42,26 +59,21 @@ const SITIO_KRSP = ""; // ej. "https://krsp.com.ar"
     .map((c, i) => `<button type="button" class="chip" data-cat="${c.id}" aria-pressed="${i === 0}">${icono(c.id)}<span>${esc(c.nombre)}</span></button>`)
     .join("");
 
+  // Tarjeta corta: foto (o ícono), nombre, texto breve y precio. El resto va en el detalle.
   function tarjeta(p, cat) {
-    const precio = p.proximamente ? "Próximamente" : p.precio ? pesos.format(p.precio) : "Consultar";
-    const etiqueta = p.proximamente
-      ? '<span class="etiqueta etiqueta--pronto">Próximamente</span>'
-      : p.tipo === "digital"
-        ? '<span class="etiqueta etiqueta--digital">PDF / digital</span>'
-        : '<span class="etiqueta">Físico</span>';
-    const foto = p.foto
-      ? `<div class="tarjeta__foto"><img src="${esc(p.foto)}" alt="${esc(p.nombre)}" width="400" height="300" loading="lazy" decoding="async"></div>`
-      : "";
-    const opciones = p.opciones
-      ? `<ul class="opciones" aria-label="Opciones">${p.opciones.map((o) => `<li>${esc(o)}</li>`).join("")}</ul>`
+    const foto = fotosDe(p)[0];
+    const arriba = foto
+      ? `<div class="tarjeta__foto"><img src="${esc(foto)}" alt="" width="400" height="300" loading="lazy" decoding="async"></div>`
       : "";
     return `<article class="tarjeta${p.proximamente ? " tarjeta--pronto" : ""}">
-      ${foto}
-      <div class="tarjeta__arriba">${foto ? "<span></span>" : icono(cat.id)}${etiqueta}</div>
+      ${arriba}
+      <div class="tarjeta__arriba">${foto ? "<span></span>" : icono(cat.id)}${etiquetaDe(p)}</div>
       <h4>${esc(p.nombre)}</h4>
       ${p.detalle ? `<p class="tarjeta__texto">${esc(p.detalle)}</p>` : ""}
-      ${opciones}
-      <p class="precio">${precio}</p>
+      <div class="tarjeta__pie">
+        <p class="precio">${precioDe(p)}</p>
+        <button type="button" class="ver-detalle" data-prod="${p._cod}">Ver detalle<span class="saltar"> de ${esc(p.nombre)}</span> <span aria-hidden="true">→</span></button>
+      </div>
     </article>`;
   }
 
@@ -117,7 +129,90 @@ const SITIO_KRSP = ""; // ej. "https://krsp.com.ar"
   grilla.addEventListener("click", (e) => {
     const b = e.target.closest(".ver-mas");
     if (b) elegir(b.dataset.ver);
+    const d = e.target.closest(".ver-detalle");
+    if (d) abrirDetalle(porCodigo[d.dataset.prod]);
   });
+
+  // ---------- Detalle del producto (pop-up en compu, pantalla completa en celu) ----------
+  const detalle = document.getElementById("detalle");
+  const cuerpo = detalle && detalle.querySelector(".detalle__cuerpo");
+  let fotoActual = 0;
+  let enHistorial = false; // si el detalle dejó una entrada en el historial (para el botón "atrás")
+
+  // Cierra el detalle y deja la página como estaba (scroll destrabado, historial limpio)
+  function cerrarDetalle() {
+    if (detalle.open) detalle.close();
+    document.documentElement.classList.remove("con-detalle");
+    if (enHistorial) { enHistorial = false; history.back(); }
+  }
+
+  function mostrarFoto(fotos, n) {
+    fotoActual = (n + fotos.length) % fotos.length;
+    const img = cuerpo.querySelector(".detalle__foto img");
+    img.src = fotos[fotoActual];
+    cuerpo.querySelector(".detalle__cuenta").textContent = `Foto ${fotoActual + 1} de ${fotos.length}`;
+    cuerpo.querySelectorAll(".detalle__mini").forEach((b, i) => b.setAttribute("aria-pressed", String(i === fotoActual)));
+  }
+
+  function abrirDetalle(p) {
+    if (!p || !detalle) return;
+    const fotos = fotosDe(p);
+    const varias = fotos.length > 1;
+    const galeria = fotos.length
+      ? `<div class="detalle__foto">
+          <img src="${esc(fotos[0])}" alt="Foto de ${esc(p.nombre)}" width="800" height="600" decoding="async">
+          ${varias ? `<button type="button" class="detalle__flecha detalle__flecha--ant" data-paso="-1" aria-label="Foto anterior">‹</button>
+          <button type="button" class="detalle__flecha detalle__flecha--sig" data-paso="1" aria-label="Foto siguiente">›</button>` : ""}
+        </div>
+        ${varias ? `<p class="detalle__cuenta" aria-live="polite"></p>
+        <div class="detalle__minis">${fotos.map((f, i) => `<button type="button" class="detalle__mini" data-foto="${i}" aria-label="Ver foto ${i + 1}"><img src="${esc(f)}" alt="" width="80" height="60" loading="lazy"></button>`).join("")}</div>` : '<p class="detalle__cuenta" hidden></p>'}`
+      : `<div class="detalle__foto detalle__foto--vacia">${icono(p._cat)}<span>Foto próximamente</span></div>`;
+    const ficha = p.ficha
+      ? `<dl class="ficha">${p.ficha.map(([d, v]) => `<div><dt>${esc(d)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>`
+      : "";
+    const opciones = p.opciones
+      ? `<p class="detalle__subt">Opciones</p><ul class="opciones">${p.opciones.map((o) => `<li>${esc(o)}</li>`).join("")}</ul>`
+      : "";
+    const mensaje = encodeURIComponent(`¡Hola! Quiero consultar por: ${p.nombre}`);
+    cuerpo.innerHTML = `
+      <div class="detalle__galeria">${galeria}</div>
+      <div class="detalle__info">
+        ${etiquetaDe(p)}
+        <h3 id="detalle-titulo">${esc(p.nombre)}</h3>
+        ${p.detalle ? `<p class="detalle__texto">${esc(p.detalle)}</p>` : ""}
+        ${ficha}
+        ${opciones}
+        <p class="precio">${precioDe(p)}</p>
+        ${p.proximamente ? "" : `<a class="boton detalle__pedir" href="https://wa.me/${WHATSAPP}?text=${mensaje}" target="_blank" rel="noopener">Consultar por WhatsApp</a>`}
+      </div>`;
+    if (varias) mostrarFoto(fotos, 0);
+    detalle._fotos = fotos;
+    detalle.showModal();
+    document.documentElement.classList.add("con-detalle");
+    cuerpo.scrollTop = 0;
+    // en el celu, el botón "atrás" cierra el detalle en vez de salir de la página
+    history.pushState({ detalle: true }, "");
+    enHistorial = true;
+  }
+
+  if (detalle) {
+    detalle.addEventListener("click", (e) => {
+      if (e.target === detalle || e.target.closest(".detalle__cerrar")) return cerrarDetalle();
+      const f = e.target.closest("[data-paso]");
+      if (f) mostrarFoto(detalle._fotos, fotoActual + Number(f.dataset.paso));
+      const m = e.target.closest("[data-foto]");
+      if (m) mostrarFoto(detalle._fotos, Number(m.dataset.foto));
+    });
+    detalle.addEventListener("keydown", (e) => {
+      if (detalle._fotos && detalle._fotos.length > 1 && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
+        mostrarFoto(detalle._fotos, fotoActual + (e.key === "ArrowRight" ? 1 : -1));
+      }
+    });
+    // Escape (o cualquier otro cierre) también limpia
+    detalle.addEventListener("cancel", (e) => { e.preventDefault(); cerrarDetalle(); });
+    detalle.addEventListener("close", cerrarDetalle);
+    window.addEventListener("popstate", () => { enHistorial = false; cerrarDetalle(); });
+  }
 
   // Las barras del inicio abren una categoría: <a href="#tienda" data-abrir="dislexia">
   document.addEventListener("click", (e) => {
